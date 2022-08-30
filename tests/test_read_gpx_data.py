@@ -46,6 +46,7 @@ def test_get_route_dataframe():
     expected_route_dataframe_columns = ["latitude", "longitude", "elevation", "time"]
     assert (obtained_route_dataframe_columns == expected_route_dataframe_columns).all()
 
+
 def test_write_route_csv():
     gpx_path = "data/gpx/medio_maraton_ensenada.gpx"
     csv_path = "data/processed/half_maraton_ensenada.csv"

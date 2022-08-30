@@ -33,7 +33,7 @@ format:
 	black --line-length 100 ${module}
 
 mutants: setup tests
-	mutmut --paths-to-mutate ${module}
+	mutmut run --paths-to-mutate ${module}
 
 setup: clean
 	pip install --editable .

@@ -13,4 +13,5 @@ RUN pip install --upgrade pip && pip install \
     pandas \
     pytest \
     pytest-cov \
-    seaborn 
+    seaborn \
+    typer 

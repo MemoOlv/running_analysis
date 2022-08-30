@@ -35,7 +35,7 @@ def test_get_route_dictionary():
     }
     assert obtained_dictionary["latitude"] == expected_dictionary["latitude"]
     assert obtained_dictionary["elevation"] == expected_dictionary["elevation"]
-    assert type(obtained_dictionary["time"]) == type(expected_dictionary["time"])
+    assert isinstance(obtained_dictionary["time"], datetime.datetime)
 
 
 def test_get_route_dataframe():

@@ -1,9 +1,11 @@
 import datetime
+import os
 from running_analysis import (
     read_gpx_file,
     get_gpx_segment_points,
     get_route_list_of_dictionaries,
     get_route_dataframe,
+    write_route_csv,
 )
 
 
@@ -43,3 +45,11 @@ def test_get_route_dataframe():
     obtained_route_dataframe_columns = obtained_route_dataframe.columns
     expected_route_dataframe_columns = ["latitude", "longitude", "elevation", "time"]
     assert (obtained_route_dataframe_columns == expected_route_dataframe_columns).all()
+
+def test_write_route_csv():
+    gpx_path = "data/gpx/medio_maraton_ensenada.gpx"
+    csv_path = "data/processed/half_maraton_ensenada.csv"
+    if os.path.exists(csv_path):
+        os.remove(csv_path)
+    write_route_csv(gpx_path, csv_path)
+    assert os.path.exists(csv_path)

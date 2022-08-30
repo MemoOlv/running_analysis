@@ -1,0 +1,16 @@
+name: Tests
+on: push
+jobs:
+  actions:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copia repositorio
+      uses: actions/checkout@v2
+    - name: Construye imagen
+      run: docker build --tag running_analysis .
+    - name: Verifica el formato
+      run: docker run running_analysis make check
+    - name: Corre pruebas
+      run: docker run running_analysis make coverage
+    - name: Evalúa resistencia a mutaciones
+      run: docker run running_analysis make mutants

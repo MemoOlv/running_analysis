@@ -1,3 +1,4 @@
+import datetime
 from running_analysis import read_gpx_file, get_gpx_segment_points, get_route_list_of_dictionaries
 
 
@@ -18,8 +19,10 @@ def test_get_segemnt_points():
 
 def test_get_route_dictionary():
     gpx_object = read_gpx_file(gpx_path)
-    obtained_gpx_points = get_gpx_segment_points(gpx_object)[0]
-    obtained_list_of_dictionaries = get_route_list_of_dictionaries(obtained_gpx_points)
-    expected_list_of_dictionaries = [{"latitude": 45.77248,"longitude": 15.95804,"elevation": 113.96000000000001,"time": 10}]
-    assert obtained_list_of_dictionaries == expected_list_of_dictionaries
+    obtained_gpx_points = get_gpx_segment_points(gpx_object)
+    obtained_dictionary = get_route_list_of_dictionaries(obtained_gpx_points)[0]
+    expected_dictionary = {"latitude": 31.843262,"longitude": -116.611852,"elevation": 477.8,"time": datetime.datetime(2022, 8, 14, 0, 51)}
+    assert obtained_dictionary["latitude"] == expected_dictionary["latitude"]
+    assert obtained_dictionary["elevation"] == expected_dictionary["elevation"]
+    assert type(obtained_dictionary["time"]) == type(expected_dictionary["time"])
     

@@ -2,6 +2,9 @@ all: check coverage tests
 
 module = running_analysis
 
+data/processed/half_marathon_ensenada.csv: setup
+	python src/half_marathon_ensenada_dataframe.py "data/gpx/medio_maraton_ensenada.gpx" "data/processed/half_maraton_ensenada.csv"
+
 .PHONY: \
 	check \
 	clean \

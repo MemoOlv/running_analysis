@@ -7,7 +7,7 @@ from running_analysis import (
 )
 
 
-gpx_path = "data/medio_maraton_ensenada.gpx"
+gpx_path = "data/gpx/medio_maraton_ensenada.gpx"
 
 
 def test_read_gpx_file():

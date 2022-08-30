@@ -12,10 +12,13 @@ module = running_analysis
 	tests
 
 check: 
+	black --check --line-length 100 src
 	black --check --line-length 100 tests
 	black --check --line-length 100 ${module}
+	flake8 --max-line-length 100 src
 	flake8 --max-line-length 100 tests
 	flake8 --max-line-length 100 ${module}
+	mypy src
 	mypy tests
 	mypy ${module}
 
@@ -33,6 +36,7 @@ format:
 	black --line-length 100 ${module}
 
 mutants: setup tests
+	mutmut run --paths-to-mutate src
 	mutmut run --paths-to-mutate ${module}
 
 setup: clean

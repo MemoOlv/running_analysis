@@ -33,7 +33,7 @@ check:
 clean: 
 	rm --force --recursive .*_cache
 	rm --force --recursive tests/__pycache__
-	rm --force .mutmut-_cache
+	rm --force .mutmut-cache
 	rm --force coverage.xml
 
 coverage: setup

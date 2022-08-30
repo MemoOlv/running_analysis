@@ -2,7 +2,12 @@ all: check coverage tests
 
 module = running_analysis
 
+define checkDirectories
+	mkdir --parents $(@D)
+endef
+
 data/processed/half_marathon_ensenada.csv: setup
+	$(checkDirectories)
 	python src/half_marathon_ensenada_dataframe.py "data/gpx/medio_maraton_ensenada.gpx" "data/processed/half_maraton_ensenada.csv"
 
 .PHONY: \

@@ -29,3 +29,8 @@ def get_route_list_of_dictionaries(gpx_path):
 def get_route_dataframe(gpx_path):
     route_points = get_route_list_of_dictionaries(gpx_path)
     return pd.DataFrame(route_points)
+
+def write_route_csv(gpx_path, csv_path):
+    route_dataframe = get_route_dataframe(gpx_path)
+    route_dataframe.to_csv(csv_path, index=False)
+    

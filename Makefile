@@ -32,12 +32,10 @@ coverage: setup
 	pytest --cov=${module} --cov-report=term-missing --verbose
 
 format:
-	black --line-length 100 src
 	black --line-length 100 tests
 	black --line-length 100 ${module}
 
 mutants: setup tests
-	mutmut --paths-to-mutate src
 	mutmut --paths-to-mutate ${module}
 
 setup: clean

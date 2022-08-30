@@ -40,6 +40,7 @@ coverage: setup
 	pytest --cov=${module} --cov-report=term-missing --verbose
 
 format:
+	black --line-length 100 src
 	black --line-length 100 tests
 	black --line-length 100 ${module}
 

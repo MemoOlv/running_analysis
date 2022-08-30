@@ -26,5 +26,6 @@ def get_route_list_of_dictionaries(gpx_path):
     ]
 
 
-def get_route_dataframe(route_points):
+def get_route_dataframe(gpx_path):
+    route_points = get_route_list_of_dictionaries(gpx_path)
     return pd.DataFrame(route_points)

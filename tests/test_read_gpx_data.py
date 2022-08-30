@@ -41,6 +41,6 @@ def test_get_route_dictionary():
 def test_get_route_dataframe():
     route_dictionary = get_route_list_of_dictionaries(gpx_path)
     obtained_route_dataframe = get_route_dataframe(route_dictionary)
-    obtained_route_dataframe_columns = obtained_route_dataframe.columns()
+    obtained_route_dataframe_columns = obtained_route_dataframe.columns
     expected_route_dataframe_columns = ["latitude", "longitude", "elevation", "time"]
-    assert obtained_route_dataframe_columns == expected_route_dataframe_columns
+    assert (obtained_route_dataframe_columns == expected_route_dataframe_columns).all()

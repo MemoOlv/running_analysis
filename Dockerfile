@@ -1,6 +1,6 @@
 FROM python:3
 WORKDIR /workdir
-copy . .
+COPY . .
 RUN pip install --upgrade pip && pip install \
     black \
     codecov \
@@ -15,3 +15,5 @@ RUN pip install --upgrade pip && pip install \
     pytest-cov \
     seaborn \
     typer 
+
+RUN pip install --editable .

@@ -15,3 +15,6 @@ def get_distance_in_meters_from_geographic_point(initial_point, final_point):
     distance_2d = distance.distance(initial_point_lat_lon, final_point_lat_lon).m
     distance_3d = np.sqrt(distance_2d**2 + (final_point_elevation - initia_point_elevation) ** 2)
     return distance_3d
+
+def get_time(initial_point, final_point):
+    return 4

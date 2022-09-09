@@ -1,10 +1,10 @@
 import datetime
 import os
 from running_analysis import (
-    read_gpx_file,
     get_gpx_segment_points,
-    get_route_list_of_dictionaries,
     get_route_dataframe,
+    get_route_list_of_dictionaries,
+    read_gpx_file,
     write_route_csv,
 )
 

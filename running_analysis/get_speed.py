@@ -1,7 +1,11 @@
 import numpy as np
-
 from geopy import distance
 
+
+def get_pace_from_speed(route_dataframe):
+    route_dataframe_with_speed = add_speed_to_dataframe(route_dataframe)
+    route_dataframe_with_speed["pace"] = (100/6)*(1/route_dataframe_with_speed["speed"]) 
+    return route_dataframe_with_speed
 
 def add_speed_to_dataframe(route_dataframe):
     list_of_speeds = get_speed_from_dataframe(route_dataframe)

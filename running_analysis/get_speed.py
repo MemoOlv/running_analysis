@@ -17,4 +17,4 @@ def get_distance_in_meters_from_geographic_point(initial_point, final_point):
     return distance_3d
 
 def get_time(initial_point, final_point):
-    return 4
+    return (final_point.time - initial_point.time).total_seconds()

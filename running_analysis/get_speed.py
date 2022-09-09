@@ -3,6 +3,12 @@ import numpy as np
 from geopy import distance
 
 
+def add_speed_to_dataframe(route_dataframe):
+    list_of_speeds = get_speed_from_dataframe(route_dataframe)
+    list_of_speeds.insert(0, 0)
+    route_dataframe["speed"] = list_of_speeds
+    return route_dataframe
+
 def get_speed_from_dataframe(route_dataframe):
     return [get_speed_in_meters_per_second(route_dataframe.iloc[i], route_dataframe.iloc[i+1]) for i in range(len(route_dataframe)-1)]
 

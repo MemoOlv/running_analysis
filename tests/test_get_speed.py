@@ -27,5 +27,11 @@ def test_get_time():
     initial_point = route_dataframe.iloc[3]
     final_point = route_dataframe.iloc[4]
     obtained_time = get_time(initial_point, final_point)
-    expected_time = 4
+    expected_time = 1.0
+    assert obtained_time == expected_time
+
+    initial_point = route_dataframe.iloc[0]
+    final_point = route_dataframe.iloc[4]
+    obtained_time = get_time(initial_point, final_point)
+    expected_time = 4.0
     assert obtained_time == expected_time

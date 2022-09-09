@@ -3,6 +3,7 @@ from running_analysis import (
     get_speed,
     get_distance_in_meters_from_geographic_point,
     get_time,
+    get_speed_from_dataframe,
 )
 
 
@@ -12,11 +13,16 @@ route_dataframe = get_route_dataframe(gpx_path)
 initial_point = route_dataframe.iloc[3]
 final_point = route_dataframe.iloc[4]
 
+def test_get_speed_from_dataframe():
+    obtained_speed = get_speed_from_dataframe(route_dataframe)
+    obtained_first_speed = obtained_speed.iloc[0]
+    expected_first_speed = 14.695700224768062
+    assert obtained_first_speed == expected_first_speed
+
 def test_get_speed():
     obtained_speed = get_speed(initial_point, final_point)
     expected_speed = 14.695700224768062/1.0
     assert obtained_speed == expected_speed
-
 
 def test_get_distance_in_meters_from_geographic_point():
     obtained_distance = get_distance_in_meters_from_geographic_point(initial_point, final_point)

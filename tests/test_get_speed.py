@@ -1,6 +1,6 @@
 from running_analysis import (
     get_route_dataframe,
-    get_speed,
+    get_speed_in_meters_per_second,
     get_distance_in_meters_from_geographic_point,
     get_time,
     get_speed_from_dataframe,
@@ -19,8 +19,8 @@ def test_get_speed_from_dataframe():
     expected_length_speed_dataframe = 1730
     assert obtained_length_speed_dataframe == expected_length_speed_dataframe
 
-def test_get_speed():
-    obtained_speed = get_speed(initial_point, final_point)
+def test_get_speed_in_meters_per_second():
+    obtained_speed = get_speed_in_meters_per_second(initial_point, final_point)
     expected_speed = 14.695700224768062/1.0
     assert obtained_speed == expected_speed
 

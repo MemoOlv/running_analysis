@@ -6,7 +6,7 @@ from geopy import distance
 def get_speed_from_dataframe(route_dataframe):
     return route_dataframe
 
-def get_speed(initial_point, final_point):
+def get_speed_in_meters_per_second(initial_point, final_point):
     distance = get_distance_in_meters_from_geographic_point(initial_point, final_point)
     time = get_time(initial_point, final_point)
     return distance/time

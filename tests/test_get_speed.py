@@ -13,8 +13,8 @@ initial_point = route_dataframe.iloc[3]
 final_point = route_dataframe.iloc[4]
 
 def test_get_speed():
-    obtained_speed = get_speed(route_dataframe)
-    expected_speed = 4
+    obtained_speed = get_speed(initial_point, final_point)
+    expected_speed = 14.695700224768062/1.0
     assert obtained_speed == expected_speed
 
 

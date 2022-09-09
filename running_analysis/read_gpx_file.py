@@ -1,6 +1,8 @@
 import gpxpy
 import pandas as pd
 
+from running_analysis.get_speed import add_speed_to_dataframe
+
 
 def read_gpx_file(gpx_path):
     with open(gpx_path) as gpx_file:
@@ -33,4 +35,5 @@ def get_route_dataframe(gpx_path):
 
 def write_route_csv(gpx_path, csv_path):
     route_dataframe = get_route_dataframe(gpx_path)
+    route_dataframe = add_speed_to_dataframe(route_dataframe)
     route_dataframe.to_csv(csv_path, index=False)

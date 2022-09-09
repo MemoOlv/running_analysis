@@ -1,10 +1,11 @@
 from running_analysis import (
-    get_route_dataframe,
-    get_speed_in_meters_per_second,
-    get_distance_in_meters_from_geographic_point,
-    get_time,
-    get_speed_from_dataframe,
     add_speed_to_dataframe,
+    get_distance_in_meters_from_geographic_point,
+    get_pace_from_speed,
+    get_route_dataframe,
+    get_speed_from_dataframe,
+    get_speed_in_meters_per_second,
+    get_time,
 )
 
 
@@ -19,6 +20,16 @@ def test_add_speed_to_dataframe():
     expected_first_speed = dataframe_with_speed["speed"].iloc[0]
     obtained_first_speed = 0
     assert obtained_first_speed == expected_first_speed
+
+def test_get_pace_from_speed():
+    obtained_speed = add_speed_to_dataframe(route_dataframe)
+    obtained_pace = get_pace_from_speed(obtained_speed)
+    obtained_length_pace_dataframe = len(obtained_pace)
+    expected_length_pace_dataframe = 10
+    assert obtained_length_pace_dataframe == expected_length_pace_dataframe
+    obtained_first_pace = obtained_pace["pace"].iloc[3]
+    expected_first_pace = 0.5621480475337237
+    assert obtained_first_pace == expected_first_pace
 
 def test_get_speed_from_dataframe():
     obtained_speed = get_speed_from_dataframe(route_dataframe)

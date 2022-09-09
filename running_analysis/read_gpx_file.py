@@ -1,7 +1,7 @@
 import gpxpy
 import pandas as pd
 
-from running_analysis.get_speed import add_speed_to_dataframe, get_pace_from_speed
+from .get_speed import add_speed_to_dataframe, get_pace_from_speed
 
 
 def read_gpx_file(gpx_path):

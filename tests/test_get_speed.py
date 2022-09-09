@@ -8,7 +8,7 @@ from running_analysis import (
 
 
 gpx_path = "data/gpx/medio_maraton_ensenada.gpx"
-route_dataframe = get_route_dataframe(gpx_path)
+route_dataframe = get_route_dataframe(gpx_path).iloc[0:10]
 
 initial_point = route_dataframe.iloc[3]
 final_point = route_dataframe.iloc[4]
@@ -16,8 +16,14 @@ final_point = route_dataframe.iloc[4]
 def test_get_speed_from_dataframe():
     obtained_speed = get_speed_from_dataframe(route_dataframe)
     obtained_length_speed_dataframe = len(obtained_speed)
-    expected_length_speed_dataframe = 1730
+    expected_length_speed_dataframe = 9
     assert obtained_length_speed_dataframe == expected_length_speed_dataframe
+    obtained_first_speed = obtained_speed[0]
+    expected_first_speed = 1.4467392395149936
+    assert obtained_first_speed == expected_first_speed
+    obtained_first_speed = obtained_speed[3]
+    expected_first_speed = 14.695700224768062
+    assert obtained_first_speed == expected_first_speed
 
 def test_get_speed_in_meters_per_second():
     obtained_speed = get_speed_in_meters_per_second(initial_point, final_point)

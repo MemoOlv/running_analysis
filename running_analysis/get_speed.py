@@ -3,8 +3,10 @@ import numpy as np
 from geopy import distance
 
 
-def get_speed(gpx_path):
-    return 4
+def get_speed(initial_point, final_point):
+    distance = get_distance_in_meters_from_geographic_point(initial_point, final_point)
+    time = get_time(initial_point, final_point)
+    return distance/time
 
 
 def get_distance_in_meters_from_geographic_point(initial_point, final_point):

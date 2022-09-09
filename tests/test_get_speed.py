@@ -2,6 +2,7 @@ from running_analysis import (
     get_route_dataframe,
     get_speed,
     get_distance_in_meters_from_geographic_point,
+    get_time,
 )
 
 
@@ -21,3 +22,10 @@ def test_get_distance_in_meters_from_geographic_point():
     obtained_distance = get_distance_in_meters_from_geographic_point(initial_point, final_point)
     expected_distance = 14.695700224768062
     assert obtained_distance == expected_distance
+
+def test_get_time():
+    initial_point = route_dataframe.iloc[3]
+    final_point = route_dataframe.iloc[4]
+    obtained_time = get_time(initial_point, final_point)
+    expected_time = 4
+    assert obtained_time == expected_time

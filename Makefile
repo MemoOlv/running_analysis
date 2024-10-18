@@ -49,8 +49,12 @@ mutants: setup tests
 	mutmut run --paths-to-mutate src
 	mutmut run --paths-to-mutate ${module}
 
-setup: clean
+init: setup tests
+
+setup: clean install
+
+install:
 	pip install --editable .
 
-tests: 
+tests:
 	pytest --verbose

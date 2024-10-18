@@ -1,0 +1,9 @@
+services:
+  develop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: memoolv/running_analysis:latest
+    command: bash
+    volumes:
+      - $PWD:/workdir

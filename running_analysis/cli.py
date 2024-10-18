@@ -1,4 +1,4 @@
-from running_analysis import write_route_csv
+from running_analysis.read_gpx_file import write_route_csv
 import typer
 
 app = typer.Typer()
@@ -13,6 +13,3 @@ def write_csv(
 @app.command()
 def dummy_command():
     print("Hey there, I'm an accesory")
-
-if __name__ == "__main__":
-    app()

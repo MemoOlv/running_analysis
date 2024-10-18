@@ -8,4 +8,15 @@ author-email = "guolg@ier.unam.mx"
 description-file = "README.md"
 home-page = "https://github.com/MemoOlv/running_analysis"
 module = "running_analysis"
+requires = [
+    "geopy",
+    "gpxpy",
+    "matplotlib",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "seaborn",
+    "streamlit",
+    "typer[all]",
+]
 requires-python=">=3.8"

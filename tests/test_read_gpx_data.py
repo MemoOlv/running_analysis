@@ -49,7 +49,7 @@ def test_get_route_dataframe():
 
 def test_write_route_csv():
     gpx_path = "data/gpx/medio_maraton_ensenada.gpx"
-    csv_path = "data/processed/half_maraton_ensenada.csv"
+    csv_path = "tests/data/half_maraton_ensenada.csv"
     if os.path.exists(csv_path):
         os.remove(csv_path)
     write_route_csv(gpx_path, csv_path)

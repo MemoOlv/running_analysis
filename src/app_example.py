@@ -5,9 +5,10 @@ import matplotlib.pyplot as plt
 
 
 df = pd.read_csv("tests/data/Activities.csv")
-max_heart_rate = 194
+max_heart_rate = st.number_input("Insert your Max HR")
+
 df_filtered = df[["Activity Type", "Date", "Distance", "Avg HR"]]
-df_filtered["heart_rate_percentage"] = df_filtered["Avg HR"] / max_heart_rate
+df_filtered["heart_rate_percentage"] = (df_filtered["Avg HR"] / max_heart_rate) * 100
 
 
 st.dataframe(df_filtered, column_config={
@@ -27,6 +28,11 @@ st.dataframe(df_filtered, column_config={
         "Avg HR": st.column_config.LineChartColumn(
             "Average HR", y_min=0, y_max=200
         ),
+        "heart_rate_percentage": st.column_config.NumberColumn(
+            "HR percentage",
+            help="Percentage of avg HR rate with maximum HR",
+            format="%.2f ❤️",
+        ),
     },
 )
 
@@ -35,5 +41,5 @@ ax1.bar(df_filtered["Activity Type"], df_filtered.Distance)
 st.pyplot(fig1)
 
 fig2, ax2 = plt.subplots(1, 1)
-ax2.hist(df_filtered.heart_rate_percentage, bins=[0.7, 0.75, 0.86, 0.88, 0.98, 1, 1.01], orientation="horizontal", rwidth=0.99)
+ax2.hist(df_filtered.heart_rate_percentage, bins=[70, 75, 86, 88, 98, 100, 101], orientation="horizontal", rwidth=0.99)
 st.pyplot(fig2)

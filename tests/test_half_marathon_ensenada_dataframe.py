@@ -1,6 +1,6 @@
 from typer.testing import CliRunner
 import os
-from ..src.half_marathon_ensenada_dataframe import app
+from running_analysis import app
 
 runner = CliRunner()
 

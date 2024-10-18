@@ -9,7 +9,7 @@ from running_analysis import (
 )
 
 
-gpx_path = "data/gpx/medio_maraton_ensenada.gpx"
+gpx_path = "tests/data/medio_maraton_ensenada.gpx"
 
 
 def test_read_gpx_file():
@@ -48,7 +48,7 @@ def test_get_route_dataframe():
 
 
 def test_write_route_csv():
-    gpx_path = "data/gpx/medio_maraton_ensenada.gpx"
+    gpx_path = "tests/data/medio_maraton_ensenada.gpx"
     csv_path = "tests/data/half_maraton_ensenada.csv"
     if os.path.exists(csv_path):
         os.remove(csv_path)
